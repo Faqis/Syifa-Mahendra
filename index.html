@@ -2,330 +2,407 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Syifa & Mahendra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undangan Pernikahan Syifa & Mahendra</title>
+    <!-- Google Fonts for Elegant Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #8a9a86; /* Sage green */
-            --secondary: #d4af37; /* Gold */
-            --bg-color: #fcfbf9;
-            --text-dark: #333333;
-            --text-light: #666666;
+            --primary: #cda873; /* Gold */
+            --bg: #fdfbf7;      /* Warm Off-White */
+            --text: #333;
+            --text-light: #666;
+            --bg-dark: #1a1a1a;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-dark); overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #222; /* Desktop background */
+            color: var(--text); 
+            overflow-x: hidden; 
+        }
         
-        /* Typography */
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .names-script { font-family: 'Dancing Script', cursive; color: var(--primary); font-size: 3.5rem; margin: 10px 0; }
-        .gold-text { color: var(--secondary); }
+        /* Mobile Frame for Desktop */
+        .container { 
+            max-width: 480px; 
+            margin: 0 auto; 
+            background: var(--bg); 
+            min-height: 100vh; 
+            position: relative; 
+            box-shadow: 0 0 30px rgba(0,0,0,0.5); 
+            overflow-x: hidden;
+        }
         
-        /* Cover Overlay */
-        #cover {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('ChatGPT Image 20 Agu 2026, 17.49.05.png') center/cover;
-            z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; transition: top 1s ease-in-out, opacity 1s ease-in-out;
+        /* Cover Section */
+        #cover { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: url('foto 1.jpg') center/cover no-repeat; 
+            z-index: 1000; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: white; 
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s ease-in-out; 
         }
-        #cover h2 { font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 300;}
-        #cover .names-script { color: white; font-size: 4.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        #cover p { font-size: 1.2rem; margin-top: 10px; font-weight: 300; letter-spacing: 1px;}
-        .btn-open {
-            margin-top: 30px; padding: 12px 30px; background-color: var(--primary);
-            color: white; border: none; border-radius: 30px; font-family: 'Poppins';
-            font-size: 1rem; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite;
+        #cover::before { 
+            content: ''; 
+            position: absolute; top:0; left:0; right:0; bottom:0; 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%); 
+            z-index: -1; 
         }
-        .btn-open:hover { background-color: #73826f; transform: scale(1.05); }
+        .cover-content {
+            z-index: 1;
+            padding: 20px;
+        }
+        #cover h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; margin: 15px 0; color: var(--primary); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        #cover p { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; }
+        .cover-date { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 40px; font-style: italic; letter-spacing: 1px !important;}
+        
+        .btn-open { 
+            background: transparent; 
+            color: white; 
+            border: 2px solid var(--primary); 
+            padding: 12px 35px; 
+            font-size: 1rem; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-family: 'Poppins', sans-serif; 
+            transition: 0.3s; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite; 
+            backdrop-filter: blur(5px);
+        }
+        .btn-open:hover { background: var(--primary); }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(138, 154, 134, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(138, 154, 134, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(138, 154, 134, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(205, 168, 115, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(205, 168, 115, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(205, 168, 115, 0); }
         }
 
-        /* Main Content */
-        #main-content { display: none; opacity: 0; transition: opacity 1s ease-in; }
-        .section { padding: 80px 20px; text-align: center; position: relative; }
-        .container { max-width: 800px; margin: 0 auto; }
+        /* Hidden Content initially */
+        #main-content { display: none; opacity: 0; transition: opacity 1s ease-in-out; }
         
-        /* Ornaments */
-        .divider { width: 200px; height: 2px; background: linear-gradient(90deg, transparent, var(--secondary), transparent); margin: 30px auto; }
-        .svg-ornament { fill: var(--primary); width: 80px; margin: 0 auto 20px; }
+        /* Sections & Ornaments */
+        section { padding: 60px 25px; text-align: center; position: relative; }
+        .ornament { width: 120px; margin: 0 auto 25px; opacity: 0.9; }
         
-        /* Hero (First section after cover) */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .hero-img { width: 280px; height: 380px; object-fit: cover; border-radius: 140px 140px 0 0; border: 5px solid var(--secondary); padding: 5px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        /* Typography */
+        h2 { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--primary); margin-bottom: 15px; font-weight: normal; }
+        h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 10px; color: var(--text); }
+        p { font-size: 0.95rem; line-height: 1.8; color: var(--text-light); margin-bottom: 15px; }
+        
+        /* Images */
+        .img-couple { 
+            width: 100%; 
+            border-radius: 150px 150px 10px 10px; 
+            margin-bottom: 25px; 
+            object-fit: cover; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+            border: 6px solid white; 
+        }
         
         /* Quote */
-        .quote-box { font-style: italic; color: var(--text-light); line-height: 1.8; margin: 0 20px; font-size: 1.05rem; }
-        .quote-ref { font-weight: bold; margin-top: 15px; color: var(--primary); }
+        .quote { 
+            font-style: italic; 
+            font-family: 'Playfair Display', serif; 
+            padding: 30px 20px; 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            position: relative;
+        }
+        .quote::before {
+            content: '”';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--primary);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.3;
+        }
         
-        /* Couple Profile */
-        .couple-wrap { display: flex; flex-direction: column; gap: 40px; margin-top: 40px; }
-        @media(min-width: 768px) { .couple-wrap { flex-direction: row; justify-content: center; gap: 60px; } }
-        .person h3 { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--primary); margin-bottom: 5px;}
-        .person p { color: var(--text-light); font-size: 0.95rem; margin-top: 5px; line-height: 1.6; }
-        .couple-img { width: 100%; max-width: 450px; border-radius: 10px; margin: 30px auto; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        
-        /* Event Details */
-        .event-cards { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
-        @media(min-width: 768px) { .event-cards { flex-direction: row; } }
-        .card { background: white; padding: 40px 20px; border-radius: 15px; flex: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--primary); }
-        .card i { font-size: 2rem; color: var(--secondary); margin-bottom: 20px; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); }
-        .card p { margin-bottom: 10px; color: var(--text-light); line-height: 1.6; }
+        /* Detail Acara */
+        .event-card { 
+            background: white; 
+            padding: 35px 20px; 
+            border-radius: 20px; 
+            margin-bottom: 25px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border-top: 5px solid var(--primary); 
+            position: relative;
+        }
+        .event-card h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 15px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px;}
         
         /* Gift */
-        .gift-box { background: white; padding: 30px; border-radius: 15px; max-width: 500px; margin: 30px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .btn-copy { background: var(--primary); color: white; border: none; padding: 10px 25px; border-radius: 25px; cursor: pointer; margin-top: 15px; font-size: 0.9rem; transition: 0.3s; }
-        .btn-copy:hover { background: #73826f; }
+        .gift-card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 15px; 
+            margin-bottom: 20px; 
+            border: 1px dashed var(--primary); 
+        }
+        .btn-copy { 
+            background: var(--bg-dark); 
+            color: white;
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 0.85rem; 
+            margin-top: 15px; 
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-copy:hover { background: var(--primary); }
         
-        /* Music Control */
-        #music-control { position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;}
-        #music-control:hover { transform: scale(1.1); }
+        /* Footer */
+        footer { background: var(--bg-dark); color: white; padding: 50px 20px; text-align: center; }
+        footer p { color: #ccc; margin-bottom: 5px; }
+        .logo-faqis { width: 120px; margin-top: 25px; border-radius: 10px; border: 1px solid #444; }
         
-        /* Fade In Animation Class */
+        /* Animation Classes for Scroll */
         .fade-in { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        /* FAQIS Footer Styles */
-        .faqis-footer {
-            background-color: #fdfcfb; /* Very light cream background, matching the logo badge slightly */
-            padding: 50px 0;
-            border-top: 1px solid #e0e0e0;
+        
+        /* Audio Control */
+        #audio-control { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 50px; 
+            height: 50px; 
+            background: white; 
+            border: 2px solid var(--primary);
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: var(--primary); 
+            font-size: 1.2rem;
+            cursor: pointer; 
+            z-index: 999; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            animation: spin 4s linear infinite;
         }
-        .faqis-footer .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .faqis-by {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 300;
-            font-size: 0.9rem;
-            color: #888888;
-            margin-bottom: 5px;
-        }
-        .faqis-logo {
-            max-width: 190px;
-            height: auto;
-            margin: 0 auto;
-        }
+        #audio-control.paused { animation: none; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-    <!-- Background Music (Royalty Free Classic Wedding Tune) -->
-    <audio id="bg-music" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3" type="audio/mpeg">
-    </audio>
+<!-- Audio Element -->
+<!-- Note: GitHub Pages users will need to place a music.mp3 file in the same directory -->
+<audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
-    <!-- Music Controller -->
-    <div id="music-control" onclick="toggleMusic()">
-        <i class="fas fa-music" id="music-icon"></i>
+<!-- Cover Page -->
+<div id="cover">
+    <div class="cover-content">
+        <p>The Wedding Of</p>
+        <h1>Syifa & Mahendra</h1>
+        <p class="cover-date">Minggu, 20 Desember 2026</p>
+        <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
     </div>
+</div>
 
-    <!-- Cover Page -->
-    <div id="cover">
-        <h2>THE WEDDING OF</h2>
-        <div class="names-script">Syifa & Mahendra</div>
-        <p>Minggu, 20 Desember 2026</p>
-        <button class="btn-open" onclick="openInvitation()"><i class="fas fa-envelope-open"></i> Buka Undangan</button>
-    </div>
+<!-- Main Container -->
+<div class="container" id="main-content">
+    
+    <!-- Hero Section -->
+    <section>
+        <!-- Floral SVG Ornament -->
+        <svg class="ornament fade-in" viewBox="0 0 100 30" fill="none" stroke="var(--primary)" stroke-width="2">
+            <path d="M10,15 Q25,5 40,15 T70,15 T90,15" />
+            <circle cx="50" cy="15" r="4" fill="var(--primary)" />
+            <circle cx="25" cy="15" r="2" fill="var(--primary)" />
+            <circle cx="75" cy="15" r="2" fill="var(--primary)" />
+        </svg>
+        <p class="fade-in" style="text-transform: uppercase; letter-spacing: 2px;">The Wedding Of</p>
+        <h2 class="fade-in">Syifa & Mahendra</h2>
+        <img src="foto 1.jpg" alt="Syifa & Mahendra" class="img-couple fade-in">
+    </section>
 
-    <!-- Main Content -->
-    <div id="main-content">
+    <!-- Quote Section -->
+    <section style="background: #f4efdf;">
+        <div class="quote fade-in">
+            <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."</p>
+            <p style="margin-bottom: 0; color: var(--text);"><strong>(QS. Ar-Rum: 21)</strong></p>
+        </div>
+        <p class="fade-in" style="margin-top: 40px;">Dengan memohon rahmat dan rida Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:</p>
+    </section>
+
+    <!-- Profil Mempelai -->
+    <section>
+        <h2 class="fade-in">Mempelai</h2>
+        <img src="foto 2.jpg" alt="Mempelai" class="img-couple fade-in" style="border-radius: 20px; object-position: top;">
         
-        <!-- Hero Section -->
-        <section class="section hero container">
-            <!-- Simple SVG Floral Ornament -->
-            <svg class="svg-ornament fade-in" viewBox="0 0 100 100">
-                <path d="M50 0 C60 30 80 40 100 50 C80 60 60 70 50 100 C40 70 20 60 0 50 C20 40 40 30 50 0 Z"></path>
-            </svg>
-            <h2 class="fade-in">The Wedding Of</h2>
-            <h1 class="names-script fade-in">Syifa & Mahendra</h1>
-            <p class="fade-in" style="letter-spacing: 2px;">Minggu, 20 Desember 2026</p>
-            <div class="divider fade-in"></div>
-            <img src="ChatGPT Image 20 Agu 2026, 17.49.05.png" alt="Syifa and Mahendra" class="hero-img fade-in">
-        </section>
+        <div class="fade-in" style="margin-top: 30px;">
+            <h3>Aurelia Syifa</h3>
+            <p>Putri dari<br>Bapak Farhan Hidayat & Ibu Nadia Rahmawati</p>
+        </div>
+        
+        <h2 class="fade-in" style="font-size: 3rem; margin: 20px 0; color: #ccc;">&</h2>
+        
+        <div class="fade-in">
+            <h3>Ardan Mahendra</h3>
+            <p>Putra dari<br>Bapak Rendra Pratama & Ibu Siti Maharani</p>
+        </div>
+    </section>
 
-        <!-- Quote Section -->
-        <section class="section" style="background-color: #f2efe9;">
-            <div class="container fade-in">
-                <i class="fas fa-quote-left" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 25px;"></i>
-                <p class="quote-box">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."</p>
-                <p class="quote-ref">(QS. Ar-Rum: 21)</p>
-            </div>
-        </section>
+    <!-- Detail Acara -->
+    <section style="background: #f4efdf;">
+        <h2 class="fade-in">Detail Acara</h2>
+        <p class="fade-in" style="margin-bottom: 40px;">Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu pada:</p>
+        
+        <div class="event-card fade-in">
+            <h4>Akad Nikah / Pemberkatan</h4>
+            <p><strong>Minggu, 20 Desember 2026</strong><br>08.00 WIB - Selesai</p>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 15px 0;">
+            <p><strong>Masjid Raya Agung</strong><br>Jl. Cinta No. 10 Sukabumi</p>
+            <a href="https://maps.google.com/?q=Jl.+Cinta+No.+10+Sukabumi" target="_blank" class="btn-copy" style="display: inline-block; text-decoration: none;">Google Maps</a>
+        </div>
+        
+        <div class="event-card fade-in">
+            <h4>Resepsi Pernikahan</h4>
+            <p><strong>Minggu, 20 Desember 2026</strong><br>10.00 - 13.00 WIB</p>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 15px 0;">
+            <p><strong>Gedung Serbaguna MAPAK</strong><br>Jl. Cinta No. 10 Sukabumi</p>
+            <a href="https://maps.google.com/?q=Jl.+Cinta+No.+10+Sukabumi" target="_blank" class="btn-copy" style="display: inline-block; text-decoration: none;">Google Maps</a>
+        </div>
+    </section>
 
-        <!-- Profile Section -->
-        <section class="section container">
-            <h2 class="gold-text fade-in" style="font-size: 2rem;">Mempelai</h2>
-            <div class="divider fade-in"></div>
-            <p class="fade-in" style="color: var(--text-light); margin-bottom: 30px; line-height: 1.8;">Dengan memohon rahmat dan rida Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:</p>
+    <!-- Wedding Gift -->
+    <section>
+        <h2 class="fade-in">Wedding Gift</h2>
+        <p class="fade-in">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, jika Bapak/Ibu/Saudara/i ingin memberikan tanda kasih untuk kami, dapat melalui fitur di bawah ini:</p>
+        
+        <div class="gift-card fade-in">
+            <h3 style="font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #00529C;">Bank BRI</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 5px; color: var(--text);"><strong>123456789</strong></p>
+            <p>a.n. Aurelia Syifa</p>
+            <button class="btn-copy" onclick="copyText('123456789')">Salin No. Rekening</button>
+        </div>
+        
+        <div class="gift-card fade-in">
+            <h3 style="font-family: 'Poppins', sans-serif; font-size: 1.2rem;">Kirim Kado</h3>
+            <p style="margin-top: 10px;"><strong>Alamat Penerima:</strong><br>Jl. Cinta No. 10 Sukabumi</p>
+        </div>
+    </section>
+
+    <!-- Penutup -->
+    <section style="padding-bottom: 80px;">
+        <svg class="ornament fade-in" viewBox="0 0 100 30" fill="none" stroke="var(--primary)" stroke-width="2" style="transform: rotate(180deg);">
+            <path d="M10,15 Q25,5 40,15 T70,15 T90,15" />
+            <circle cx="50" cy="15" r="4" fill="var(--primary)" />
+            <circle cx="25" cy="15" r="2" fill="var(--primary)" />
+            <circle cx="75" cy="15" r="2" fill="var(--primary)" />
+        </svg>
+        <p class="fade-in">Tiada kesan yang lebih mendalam selain kehadiran serta doa restu Bapak/Ibu/Saudara/i yang mengiringi langkah kami. Atas kehadiran dan doa restunya, kami ucapkan terima kasih.</p>
+        <p class="fade-in" style="font-weight: 500; color: var(--text); margin-top: 20px;">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+        <br>
+        <p class="fade-in">Kami yang berbahagia,</p>
+        <h2 class="fade-in" style="font-size: 3.5rem; margin-top: 10px;">Syifa & Mahendra</h2>
+        <p class="fade-in">beserta keluarga besar</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-size: 0.9rem;">Powered by</p>
+        <img src="logo.jpg" alt="Faqis Logo" class="logo-faqis">
+        <p style="margin-top: 15px; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">Faqis</p>
+        <p style="font-size: 0.75rem; color: #888;">Jasa Desain & Cetak Undangan<br>085759820610</p>
+    </footer>
+</div>
+
+<!-- Audio Control Button -->
+<div id="audio-control" onclick="toggleAudio()" style="display: none;">
+    <span id="audio-icon">🎵</span>
+</div>
+
+<script>
+    // Open Invitation Function
+    function openInvitation() {
+        const cover = document.getElementById('cover');
+        const mainContent = document.getElementById('main-content');
+        const audioControl = document.getElementById('audio-control');
+        const bgMusic = document.getElementById('bg-music');
+        
+        // Slide up animation
+        cover.style.transform = 'translateY(-100vh)';
+        
+        // Show content
+        setTimeout(() => {
+            cover.style.display = 'none';
+            mainContent.style.display = 'block';
+            window.scrollTo(0,0); // Ensure page starts at top
             
-            <img src="ChatGPT Image 20 Agu 2026, 17.52.14.png" alt="Couple" class="couple-img fade-in">
-            
-            <div class="couple-wrap fade-in">
-                <div class="person">
-                    <h3>Aurelia Syifa</h3>
-                    <p>Putri tercinta dari<br>Bapak <strong>Farhan Hidayat</strong><br>& Ibu <strong>Nadia Rahmawati</strong></p>
-                </div>
-                <div class="person" style="display: flex; align-items: center; justify-content: center;">
-                    <h3 style="font-family: 'Playfair Display'; color: var(--secondary); font-size: 3rem;">&amp;</h3>
-                </div>
-                <div class="person">
-                    <h3>Ardan Mahendra</h3>
-                    <p>Putra tercinta dari<br>Bapak <strong>Rendra Pratama</strong><br>& Ibu <strong>Siti Maharani</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Event Section -->
-        <section class="section" style="background-color: #f2efe9;">
-            <div class="container fade-in">
-                <h2 class="gold-text" style="font-size: 2rem;">Detail Acara</h2>
-                <div class="divider"></div>
-                <p style="color: var(--text-light); margin-bottom: 40px; line-height: 1.8;">Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu pada:</p>
-                
-                <div class="event-cards">
-                    <div class="card fade-in">
-                        <i class="fas fa-ring"></i>
-                        <h3>Akad Nikah</h3>
-                        <p><strong>Minggu, 20 Desember 2026</strong></p>
-                        <p>08.00 WIB - Selesai</p>
-                        <p><strong>Masjid Raya Agung</strong><br>Jl. Cinta No. 10 Sukabumi</p>
-                    </div>
-                    <div class="card fade-in">
-                        <i class="fas fa-glass-cheers"></i>
-                        <h3>Resepsi</h3>
-                        <p><strong>Minggu, 20 Desember 2026</strong></p>
-                        <p>10.00 - 13.00 WIB</p>
-                        <p><strong>Gedung Serbaguna MAPAK</strong><br>Jl. Cinta No. 10 Sukabumi</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gift Section -->
-        <section class="section container">
-            <h2 class="gold-text fade-in" style="font-size: 2rem;">Wedding Gift</h2>
-            <div class="divider fade-in"></div>
-            <p class="fade-in" style="color: var(--text-light); line-height: 1.8;">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, jika Bapak/Ibu/Saudara/i ingin memberikan tanda kasih untuk kami, dapat melalui fitur di bawah ini:</p>
-            
-            <div class="gift-box fade-in">
-                <i class="fas fa-credit-card" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
-                <h3 style="margin-bottom: 15px; font-family: 'Poppins', sans-serif;">Transfer Bank</h3>
-                <p style="font-size: 1.1rem; color: var(--primary); font-weight: 500;">Bank BRI</p>
-                <p id="rek-number" style="font-size: 1.5rem; font-weight: bold; margin: 5px 0;">123456789</p>
-                <p style="margin-bottom: 15px;">a.n. Aurelia Syifa</p>
-                <button class="btn-copy" onclick="copyRekening()"><i class="fas fa-copy"></i> Salin Rekening</button>
-            </div>
-            
-            <div class="gift-box fade-in">
-                <i class="fas fa-gift" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
-                <h3 style="margin-bottom: 15px; font-family: 'Poppins', sans-serif;">Kirim Kado</h3>
-                <p style="line-height: 1.6;"><strong>Alamat Penerima:</strong><br>Jl. Cinta No. 10 Sukabumi</p>
-            </div>
-        </section>
-
-        <!-- Footer / Closing -->
-        <section class="section hero" style="min-height: 60vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('ChatGPT Image 20 Agu 2026, 17.49.05.png') center/cover; color: white;">
-            <div class="container fade-in">
-                <p style="font-size: 1.1rem; line-height: 2; margin-bottom: 30px;">Tiada kesan yang lebih mendalam selain kehadiran serta doa restu Bapak/Ibu/Saudara/i yang mengiringi langkah kami. Atas kehadiran dan doa restunya, kami ucapkan terima kasih.</p>
-                <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 20px;">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
-                <p style="margin-top: 40px; font-weight: 300;">Kami yang berbahagia,</p>
-                <h2 class="names-script" style="color: white; margin-top: 10px;">Syifa & Mahendra</h2>
-                <p style="font-weight: 300;">beserta keluarga besar.</p>
-            </div>
-        </section>
-
-        <!-- New Footer with FAQIS Logo -->
-        <footer class="section faqis-footer fade-in">
-            <div class="container">
-                <p class="faqis-by">Jasa Desain & Cetak Undangan Didukung oleh:</p>
-                <img src="ChatGPT Image 20 Agu 2026, 18.50.31.png" alt="FAQIS Logo - Jasa Desain & Cetak Undangan" class="faqis-logo">
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        let isMusicPlaying = false;
-        const music = document.getElementById('bg-music');
-        const musicIcon = document.getElementById('music-icon');
-
-        function openInvitation() {
-            // Slide up the cover
-            document.getElementById('cover').style.top = '-100vh';
-            
-            // Show main content and control icon
             setTimeout(() => {
-                document.getElementById('cover').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-                // Trigger a reflow
-                void document.getElementById('main-content').offsetWidth;
-                document.getElementById('main-content').style.opacity = '1';
-                document.getElementById('music-control').style.display = 'flex';
-                
-                // Play music securely
-                let playPromise = music.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        isMusicPlaying = true;
-                        musicIcon.classList.remove('fa-play');
-                        musicIcon.classList.add('fa-music');
-                    }).catch(error => {
-                        console.log("Audio autoplay prevented by browser. User must interact to play.");
-                        isMusicPlaying = false;
-                        musicIcon.classList.add('fa-play');
-                        musicIcon.classList.remove('fa-music');
-                    });
-                }
-            }, 1000);
-        }
-
-        function toggleMusic() {
-            if (isMusicPlaying) {
-                music.pause();
-                musicIcon.classList.remove('fa-music');
-                musicIcon.classList.add('fa-play');
-            } else {
-                music.play();
-                musicIcon.classList.remove('fa-play');
-                musicIcon.classList.add('fa-music');
-            }
-            isMusicPlaying = !isMusicPlaying;
-        }
-
-        function copyRekening() {
-            const rek = document.getElementById("rek-number").innerText;
-            navigator.clipboard.writeText(rek).then(() => {
-                alert("Nomor rekening berhasil disalin!");
-            }).catch(err => {
-                console.error('Gagal menyalin teks: ', err);
+                mainContent.style.opacity = '1';
+            }, 50);
+            
+            // Play background music
+            bgMusic.play().catch(error => {
+                console.log("Autoplay was prevented by browser. User needs to interact first.");
+                document.getElementById('audio-control').classList.add('paused');
             });
-        }
+            audioControl.style.display = 'flex';
+        }, 1000); // Wait for transition to finish
+    }
 
-        // Intersection Observer for scroll fade-in animation
-        const observer = new IntersectionObserver((entries) => {
+    // Audio Toggle Function
+    function toggleAudio() {
+        const audio = document.getElementById('bg-music');
+        const controlBtn = document.getElementById('audio-control');
+        if (audio.paused) {
+            audio.play();
+            controlBtn.classList.remove('paused');
+        } else {
+            audio.pause();
+            controlBtn.classList.add('paused');
+        }
+    }
+
+    // Copy to Clipboard Function
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Nomor rekening berhasil disalin: " + text);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+
+    // Intersection Observer for Scroll Animations
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Optional: stop observing once it's visible
-                    // observer.unobserve(entry.target); 
+                    observer.unobserve(entry.target); // Animate only once
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        });
+        }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach((el) => {
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-    </script>
+    });
+</script>
 </body>
 </html>
