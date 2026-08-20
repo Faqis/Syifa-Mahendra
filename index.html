@@ -90,6 +90,30 @@
         /* Fade In Animation Class */
         .fade-in { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* FAQIS Footer Styles */
+        .faqis-footer {
+            background-color: #fdfcfb; /* Very light cream background, matching the logo badge slightly */
+            padding: 50px 0;
+            border-top: 1px solid #e0e0e0;
+        }
+        .faqis-footer .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .faqis-by {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 5px;
+        }
+        .faqis-logo {
+            max-width: 190px;
+            height: auto;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -218,6 +242,14 @@
                 <p style="font-weight: 300;">beserta keluarga besar.</p>
             </div>
         </section>
+
+        <!-- New Footer with FAQIS Logo -->
+        <footer class="section faqis-footer fade-in">
+            <div class="container">
+                <p class="faqis-by">Jasa Desain & Cetak Undangan Didukung oleh:</p>
+                <img src="ChatGPT Image 20 Agu 2026, 18.50.31.png" alt="FAQIS Logo - Jasa Desain & Cetak Undangan" class="faqis-logo">
+            </div>
+        </footer>
     </div>
 
     <script>
